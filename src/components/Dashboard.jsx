@@ -10,12 +10,12 @@ import { DollarSign, Users, ShoppingBag, Activity } from 'lucide-react';
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col w-full h-screen bg-gray-50 overflow-auto">
+    <div className="flex flex-col w-full h-screen bg-gray-50/80 overflow-auto">
       <Header />
       
       <main className="flex-1 p-6 overflow-auto">
         {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard 
             title="Total Revenue" 
             value="$12,875" 
@@ -51,18 +51,25 @@ const Dashboard = () => {
         </div>
         
         {/* Charts Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-6 mb-8">
           <ChartCard title="Sales Overview" className="lg:col-span-4">
-            <AreaChart />
+            <div className="h-80">
+              <AreaChart />
+            </div>
           </ChartCard>
           <ChartCard title="Sales by Category" className="lg:col-span-3">
-            <DonutChart />
+            <div className="h-80">
+              <DonutChart />
+            </div>
           </ChartCard>
         </div>
         
         {/* Products Table */}
         <div className="mb-6">
-          <ProductTable />
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 animate-fade-in">
+            <h3 className="text-lg font-medium text-gray-800 border-b pb-3 mb-3">Top Selling Products</h3>
+            <ProductTable />
+          </div>
         </div>
       </main>
     </div>
