@@ -24,18 +24,18 @@ const Sidebar = () => {
 
   return (
     <aside 
-      className={`${collapsed ? 'w-20' : 'w-64'} h-screen bg-gradient-to-b from-sidebar-background to-sidebar-background/95 border-r border-gray-200 transition-all duration-300 ease-in-out flex flex-col shadow-lg`}
+      className={`${collapsed ? 'w-20' : 'w-64'} h-screen bg-dashboard-dark-green border-r border-dashboard-green/20 transition-all duration-300 ease-in-out flex flex-col shadow-lg z-20`}
     >
-      <div className="flex items-center justify-between p-4 border-b border-gray-200/50">
+      <div className="flex items-center justify-between p-4 border-b border-dashboard-green/30">
         {!collapsed && (
-          <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-dashboard-blue via-dashboard-indigo to-dashboard-purple">Admin<span>Pro</span></div>
+          <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-dashboard-yellow via-dashboard-pale-yellow to-dashboard-off-white">Green<span className="text-dashboard-off-white">Dash</span></div>
         )}
         {collapsed && (
-          <div className="mx-auto text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-dashboard-blue to-dashboard-indigo">A</div>
+          <div className="mx-auto text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-dashboard-yellow to-dashboard-off-white">G</div>
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+          className="p-1.5 rounded-lg hover:bg-dashboard-green/20 text-dashboard-yellow transition-colors"
         >
           {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
         </button>
@@ -48,22 +48,26 @@ const Sidebar = () => {
             href="#"
             className={`flex items-center ${collapsed ? 'justify-center' : 'justify-start'} px-4 py-3 mb-1 mx-2 rounded-lg transition-all duration-200 ${
               item.active 
-                ? 'bg-white/10 shadow-sm backdrop-blur-sm' 
-                : 'hover:bg-white/5'
+                ? 'bg-dashboard-green/20 shadow-sm backdrop-blur-sm border border-dashboard-green/30' 
+                : 'hover:bg-dashboard-green/10 border border-transparent hover:border-dashboard-green/20'
             }`}
           >
-            <item.icon size={20} className={`${item.active ? 'text-white' : 'text-gray-400'}`} />
-            {!collapsed && <span className={`ml-4 ${item.active ? 'text-white' : 'text-gray-400'}`}>{item.name}</span>}
+            <item.icon size={20} className={`${item.active ? 'text-dashboard-yellow' : 'text-dashboard-pale-yellow/70'}`} />
+            {!collapsed && (
+              <span className={`ml-4 ${item.active ? 'text-dashboard-yellow' : 'text-dashboard-pale-yellow/70'}`}>
+                {item.name}
+              </span>
+            )}
           </a>
         ))}
       </div>
       
-      <div className="p-4 border-t border-gray-200/30">
+      <div className="p-4 border-t border-dashboard-green/30">
         <a
           href="#"
-          className={`flex items-center ${collapsed ? 'justify-center' : 'justify-start'} px-4 py-3 text-gray-400 hover:bg-white/5 rounded-lg transition-all duration-200 mx-2`}
+          className={`flex items-center ${collapsed ? 'justify-center' : 'justify-start'} px-4 py-3 text-dashboard-pale-yellow/70 hover:bg-dashboard-green/10 rounded-lg transition-all duration-200 mx-2 hover:text-dashboard-yellow border border-transparent hover:border-dashboard-green/20`}
         >
-          <LogOut size={20} className="text-gray-400" />
+          <LogOut size={20} />
           {!collapsed && <span className="ml-4">Logout</span>}
         </a>
       </div>
