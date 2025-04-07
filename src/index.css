@@ -50,6 +50,8 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --dashboard-accent: 222 47.4% 55%;
   }
 
   .dark {
@@ -103,20 +105,57 @@
 
 /* Custom scrollbar for a more polished look */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
+  background: #f5f5f5;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #c5c5c5;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* Enhanced Card Effects */
+.enhanced-card {
+  @apply transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] bg-gradient-to-br from-white to-gray-50;
+}
+
+.enhanced-chart-card {
+  @apply bg-white rounded-xl border border-gray-100 shadow-md p-6 transition-all duration-300 hover:shadow-xl;
+}
+
+/* Enhanced Table Styles */
+.enhanced-table {
+  @apply overflow-hidden rounded-xl border border-gray-100;
+}
+
+.enhanced-table th {
+  @apply bg-gray-50 text-gray-600 font-medium py-3 px-4;
+}
+
+.enhanced-table tr:hover {
+  @apply bg-blue-50/30;
+}
+
+.enhanced-table td {
+  @apply border-t border-gray-100 py-3 px-4;
+}
+
+/* Custom Animation */
+@keyframes pulse-gentle {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.pulse-on-hover:hover {
+  animation: pulse-gentle 2s infinite ease-in-out;
 }
