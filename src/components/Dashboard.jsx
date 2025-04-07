@@ -52,12 +52,12 @@ const Dashboard = () => {
         
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-6 mb-8">
-          <ChartCard title="Sales Overview" className="lg:col-span-4">
+          <ChartCard title="" className="lg:col-span-4">
             <div className="h-80">
               <AreaChart />
             </div>
           </ChartCard>
-          <ChartCard title="Sales by Category" className="lg:col-span-3">
+          <ChartCard title="Performance" className="lg:col-span-3">
             <div className="h-80">
               <DonutChart />
             </div>
