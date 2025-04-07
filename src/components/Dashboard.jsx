@@ -50,14 +50,14 @@ const Dashboard = () => {
           />
         </div>
         
-        {/* Charts Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-6 mb-8">
-          <ChartCard title="" className="lg:col-span-4">
+        {/* Charts Section - Now displayed vertically */}
+        <div className="flex flex-col gap-6 mb-8">
+          <ChartCard title="" className="w-full">
             <div className="h-80">
               <AreaChart />
             </div>
           </ChartCard>
-          <ChartCard title="Performance" className="lg:col-span-3">
+          <ChartCard title="Performance" className="w-full">
             <div className="h-80">
               <DonutChart />
             </div>
