@@ -5,7 +5,7 @@ import StatCard from './StatCard';
 import ChartCard from './ChartCard';
 import DonutChart from './DonutChart';
 import AreaChart from './AreaChart';
-import ProductTable from './ProductTable';
+import CustomerTable from './ProductTable';
 import { DollarSign, Users, ShoppingBag, Activity } from 'lucide-react';
 
 const Dashboard = () => {
@@ -64,12 +64,9 @@ const Dashboard = () => {
           </ChartCard>
         </div>
         
-        {/* Products Table */}
+        {/* Customer Data Table */}
         <div className="mb-6">
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 animate-fade-in">
-            <h3 className="text-lg font-medium text-gray-800 border-b pb-3 mb-3">Top Selling Products</h3>
-            <ProductTable />
-          </div>
+          <CustomerTable />
         </div>
       </main>
     </div>

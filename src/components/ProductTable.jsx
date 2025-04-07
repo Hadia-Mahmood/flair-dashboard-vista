@@ -1,126 +1,143 @@
 
 import React from 'react';
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
+import { Calendar, CheckCircle, UserRound } from 'lucide-react';
+import { format } from 'date-fns';
 
-const ProductTable = () => {
-  const products = [
+const CustomerTable = () => {
+  const customers = [
     {
       id: 1,
-      name: "Premium Wireless Headphones",
-      category: "Electronics",
-      price: "$299.99",
-      sales: 1245,
-      trend: "up",
-      image: "https://placehold.co/60x60/4F46E5/FFFFFF.png?text=HP",
+      firstName: "Alex",
+      lastName: "Morgan",
+      role: "Admin",
+      createdAt: new Date(2023, 5, 15),
+      status: "active",
+      avatar: "https://placehold.co/60x60/4F46E5/FFFFFF.png?text=AM",
     },
     {
       id: 2,
-      name: "Ergonomic Office Chair",
-      category: "Furniture",
-      price: "$189.99",
-      sales: 876,
-      trend: "up",
-      image: "https://placehold.co/60x60/10B981/FFFFFF.png?text=OC",
+      firstName: "Jordan",
+      lastName: "Smith",
+      role: "Customer",
+      createdAt: new Date(2023, 7, 22),
+      status: "active",
+      avatar: "https://placehold.co/60x60/10B981/FFFFFF.png?text=JS",
     },
     {
       id: 3,
-      name: "Smart Watch Series X",
-      category: "Electronics",
-      price: "$249.99",
-      sales: 654,
-      trend: "down",
-      image: "https://placehold.co/60x60/F97316/FFFFFF.png?text=SW",
+      firstName: "Taylor",
+      lastName: "Williams",
+      role: "Manager",
+      createdAt: new Date(2023, 9, 8),
+      status: "inactive",
+      avatar: "https://placehold.co/60x60/F97316/FFFFFF.png?text=TW",
     },
     {
       id: 4,
-      name: "Organic Cotton T-shirt",
-      category: "Clothing",
-      price: "$34.99",
-      sales: 543,
-      trend: "up",
-      image: "https://placehold.co/60x60/EC4899/FFFFFF.png?text=TS",
+      firstName: "Casey",
+      lastName: "Johnson",
+      role: "Customer",
+      createdAt: new Date(2024, 0, 12),
+      status: "active",
+      avatar: "https://placehold.co/60x60/EC4899/FFFFFF.png?text=CJ",
     },
     {
       id: 5,
-      name: "Professional Blender",
-      category: "Kitchen",
-      price: "$129.99",
-      sales: 432,
-      trend: "down",
-      image: "https://placehold.co/60x60/FBBF24/FFFFFF.png?text=PB",
+      firstName: "Riley",
+      lastName: "Brown",
+      role: "Customer Support",
+      createdAt: new Date(2024, 2, 5),
+      status: "active",
+      avatar: "https://placehold.co/60x60/FBBF24/FFFFFF.png?text=RB",
     },
   ];
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+    <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-medium text-gray-800">Top Selling Products</h3>
-        <button className="text-sm font-medium text-dashboard-blue hover:text-dashboard-indigo">
+        <h3 className="text-lg font-medium text-gray-800">Customer Data</h3>
+        <button className="text-sm font-medium text-dashboard-blue hover:text-dashboard-indigo transition-colors">
           View All
         </button>
       </div>
       
       <div className="overflow-x-auto">
-        <table className="min-w-full">
-          <thead className="bg-gray-50 text-xs uppercase">
-            <tr>
-              <th scope="col" className="px-6 py-3 text-left text-gray-500 font-medium tracking-wider">
-                Product
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-gray-500 font-medium tracking-wider">
-                Category
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-gray-500 font-medium tracking-wider">
-                Price
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-gray-500 font-medium tracking-wider">
-                Sales
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-gray-500 font-medium tracking-wider">
-                Trend
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {products.map((product) => (
-              <tr key={product.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-left text-gray-500 font-medium tracking-wider">
+                Customer
+              </TableHead>
+              <TableHead className="text-left text-gray-500 font-medium tracking-wider">
+                Role
+              </TableHead>
+              <TableHead className="text-left text-gray-500 font-medium tracking-wider">
+                Joined
+              </TableHead>
+              <TableHead className="text-left text-gray-500 font-medium tracking-wider">
+                Status
+              </TableHead>
+              <TableHead className="text-left text-gray-500 font-medium tracking-wider">
+                Actions
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody className="divide-y divide-gray-200">
+            {customers.map((customer) => (
+              <TableRow key={customer.id} className="hover:bg-gray-50 transition-colors">
+                <TableCell className="py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="h-12 w-12 flex-shrink-0">
-                      <img className="h-12 w-12 rounded-lg" src={product.image} alt={product.name} />
+                      <img className="h-12 w-12 rounded-full border-2 border-gray-200" src={customer.avatar} alt={`${customer.firstName} ${customer.lastName}`} />
                     </div>
                     <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900">{product.name}</div>
+                      <div className="text-sm font-medium text-gray-900">{customer.firstName} {customer.lastName}</div>
+                      <div className="text-sm text-gray-500">{customer.firstName.toLowerCase()}{customer.lastName.toLowerCase()}@example.com</div>
                     </div>
                   </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-500">{product.category}</div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-gray-900">{product.price}</div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">{product.sales}</div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {product.trend === "up" ? (
+                </TableCell>
+                <TableCell className="py-4 whitespace-nowrap">
+                  <div className="text-sm font-medium text-gray-900 inline-flex items-center gap-1">
+                    <UserRound size={14} className="text-dashboard-blue opacity-70" />
+                    {customer.role}
+                  </div>
+                </TableCell>
+                <TableCell className="py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-500 inline-flex items-center gap-1">
+                    <Calendar size={14} className="text-dashboard-purple opacity-70" />
+                    {format(customer.createdAt, 'MMM dd, yyyy')}
+                  </div>
+                </TableCell>
+                <TableCell className="py-4 whitespace-nowrap">
+                  {customer.status === "active" ? (
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-dashboard-green">
-                      <TrendingUp size={14} className="mr-1" /> Up
+                      <CheckCircle size={14} className="mr-1" /> Active
                     </span>
                   ) : (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-dashboard-red">
-                      <TrendingDown size={14} className="mr-1" /> Down
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                      Inactive
                     </span>
                   )}
-                </td>
-              </tr>
+                </TableCell>
+                <TableCell className="py-4 whitespace-nowrap">
+                  <div className="flex space-x-2">
+                    <button className="text-xs px-2 py-1 bg-blue-50 text-dashboard-blue rounded-md hover:bg-blue-100 transition-colors">
+                      View
+                    </button>
+                    <button className="text-xs px-2 py-1 bg-gray-50 text-gray-600 rounded-md hover:bg-gray-100 transition-colors">
+                      Edit
+                    </button>
+                  </div>
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     </div>
   );
 };
 
-export default ProductTable;
+export default CustomerTable;
+
