@@ -10,7 +10,7 @@ import { DollarSign, Users, ShoppingBag, Activity } from 'lucide-react';
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col w-full h-screen bg-[#0a2e22] overflow-auto">
+    <div className="flex flex-col w-full h-screen bg-gray-50/80 overflow-auto">
       <Header />
       
       <main className="flex-1 p-6 overflow-auto">
@@ -22,7 +22,7 @@ const Dashboard = () => {
             icon={DollarSign} 
             change="12.5%" 
             changeType="increase" 
-            color="green" 
+            color="blue" 
           />
           <StatCard 
             title="Total Customers" 
@@ -30,7 +30,7 @@ const Dashboard = () => {
             icon={Users} 
             change="8.2%" 
             changeType="increase" 
-            color="green" 
+            color="indigo" 
           />
           <StatCard 
             title="Total Orders" 
@@ -38,7 +38,7 @@ const Dashboard = () => {
             icon={ShoppingBag} 
             change="3.1%" 
             changeType="decrease" 
-            color="yellow" 
+            color="purple" 
           />
           <StatCard 
             title="Conversion Rate" 
@@ -46,7 +46,7 @@ const Dashboard = () => {
             icon={Activity} 
             change="1.2%" 
             changeType="increase" 
-            color="yellow" 
+            color="pink" 
           />
         </div>
         

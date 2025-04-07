@@ -69,13 +69,10 @@ export default {
 					'purple': '#8B5CF6',
 					'pink': '#EC4899',
 					'orange': '#F97316',
-					'green': '#15803d',
-					'dark-green': '#064e3b',
-					'yellow': '#eab308',
-					'pale-yellow': '#fef9c3',
+					'green': '#10B981',
+					'yellow': '#FBBF24',
 					'red': '#EF4444',
 					'gray': '#6B7280',
-					'off-white': '#f8fafc',
 				}
 			},
 			borderRadius: {
