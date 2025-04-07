@@ -10,7 +10,7 @@ import { DollarSign, Users, ShoppingBag, Activity } from 'lucide-react';
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col w-full h-screen bg-gray-50/50 overflow-auto">
+    <div className="flex flex-col w-full h-screen bg-gray-50/80 overflow-auto">
       <Header />
       
       <main className="flex-1 p-6 overflow-auto">
@@ -58,7 +58,9 @@ const Dashboard = () => {
             </div>
           </ChartCard>
           <ChartCard title="Sales by Category" className="lg:col-span-3">
-            <DonutChart />
+            <div className="h-80">
+              <DonutChart />
+            </div>
           </ChartCard>
         </div>
         
